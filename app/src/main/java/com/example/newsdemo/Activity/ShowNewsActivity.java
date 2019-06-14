@@ -17,6 +17,9 @@ import com.example.newsdemo.R;
 import com.example.newsdemo.Utils.MyDatabaseHelper;
 
 
+/**
+ * @description:实现显示新闻功能
+ */
 public class ShowNewsActivity extends AppCompatActivity {
 
     private WebView show_news;
@@ -31,9 +34,14 @@ public class ShowNewsActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_show_news);
-        initView();
+
+        show_news = findViewById(R.id.show_news);
+        collect_news = findViewById(R.id.collect_news);
+
+        //加载新闻信息数据库表
         helper = new MyDatabaseHelper(this, "UserDB.db", null, 1);
 
+        //进度提示
         mDialog = new ProgressDialog(ShowNewsActivity.this);
         mDialog.setMessage("玩命加载ing");
         show_news.setWebViewClient(new WebViewClient() {
@@ -46,7 +54,7 @@ public class ShowNewsActivity extends AppCompatActivity {
                 }
             }
 
-            //网页停止加载时的回调
+            //网页停止加载时的回调，加载完成后隐藏加载框
             @Override
             public void onPageFinished(WebView view, String url) {
                 super.onPageFinished(view, url);
@@ -55,6 +63,8 @@ public class ShowNewsActivity extends AppCompatActivity {
                     mDialog.dismiss();
             }
         });
+
+        //设置支持JavaScript
         show_news.getSettings().setJavaScriptEnabled(true);
         Intent intent = getIntent();
         final String news_url = intent.getStringExtra("url");
@@ -64,6 +74,8 @@ public class ShowNewsActivity extends AppCompatActivity {
         final String news_picurl = intent.getStringExtra("pic_url");
         show_news.loadUrl(news_url);
 
+
+        //收藏功能实现
         collect_news.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -72,6 +84,7 @@ public class ShowNewsActivity extends AppCompatActivity {
 
                 SQLiteDatabase db = helper.getWritableDatabase();
 
+                //(ContentValues)key、value形式存储信息
                 ContentValues values = new ContentValues();
                 //组装数据
                 values.put("news_url", news_url);
@@ -81,24 +94,11 @@ public class ShowNewsActivity extends AppCompatActivity {
                 values.put("news_picurl", news_picurl);
 
                 db.insert("Collection_News", null, values);
-
                 db.close();
-
-
-               /* SharedPreferences sp = getSharedPreferences("collection", MODE_PRIVATE);
-                SharedPreferences.Editor editor = sp.edit();
-                editor.putString(news_title, news_url);
-                //提交
-                editor.apply();*/
 
                 Toast.makeText(ShowNewsActivity.this, "收藏成功！", Toast.LENGTH_SHORT).show();
             }
         });
-    }
-
-    private void initView() {
-        show_news =(WebView) findViewById(R.id.show_news);
-        collect_news =(ImageView) findViewById(R.id.collect_news);
     }
 
 }

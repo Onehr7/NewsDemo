@@ -7,5 +7,7 @@
     <com.example.newsdemo.Utils.LoadListView
         android:id="@+id/lv_main"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"></com.example.newsdemo.Utils.LoadListView>
+        android:layout_height="match_parent">
+
+    </com.example.newsdemo.Utils.LoadListView>
 </LinearLayout>

@@ -7,10 +7,10 @@ import android.graphics.Bitmap;
  */
 
 public class News {
-    private Bitmap news_img;
-    private String news_title;
-    private String news_url;
-    private String news_picurl;
+    private Bitmap news_img;            //像素类型新闻图片
+    private String news_title;          //新闻标题
+    private String news_url;            //新闻url
+    private String news_picurl;         //新闻图片url
 
     private String uniquekey;
     private String date;

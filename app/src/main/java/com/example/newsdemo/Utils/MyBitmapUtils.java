@@ -5,7 +5,9 @@ import android.graphics.Bitmap;
 import android.util.Log;
 
 /**
- * 自定义的BitmapUtils,实现三级缓存
+ * 自定义的图片缓存工具类--BitmapUtils,实现三级缓存，提升访问速度和节约流量
+ * 通过网络、本地、内存三级缓存图片，来减少不必要的网络交互，避免浪费流量
+ * 参考Android三级缓存知识点：https://blog.csdn.net/alidexuetong/article/details/52774253
  */
 public class MyBitmapUtils {
 
@@ -25,7 +27,7 @@ public class MyBitmapUtils {
         //内存缓存
         bitmap = mMemoryCacheUtils.getBitmapFromMemory(url);
         if (bitmap!= null) {
-            Log.d("getBitmap", "内存获取Bitmap");
+            Log.d("getBitmap", "通过内存获取图片");
             return bitmap;
         }
 
@@ -34,13 +36,13 @@ public class MyBitmapUtils {
         if (bitmap != null) {
             //从本地获取图片后,保存至内存中
             mMemoryCacheUtils.setBitmapToMemory(url, bitmap);
-            Log.d("getBitmap", "本地获取Bitmap");
+            Log.d("getBitmap", "通过本地获取图片");
             return bitmap;
         }
 
         //网络缓存
         bitmap = mNetCacheUtils.getBitmapFromNet(url);
-        Log.d("getBitmap", "网络获取Bitmap");
+        Log.d("getBitmap", "通过网络获取图片");
         return bitmap;
     }
 }
