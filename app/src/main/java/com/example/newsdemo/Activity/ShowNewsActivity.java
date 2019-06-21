@@ -14,7 +14,7 @@ import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.example.newsdemo.R;
-import com.example.newsdemo.Utils.MyDatabaseHelper;
+import com.example.newsdemo.login.DBOpenHelper;
 
 
 /**
@@ -28,7 +28,7 @@ public class ShowNewsActivity extends AppCompatActivity {
     // 添加用户等待显示控件
     private ProgressDialog mDialog;
 
-    private MyDatabaseHelper helper;
+    private DBOpenHelper helper;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,7 +39,7 @@ public class ShowNewsActivity extends AppCompatActivity {
         collect_news = findViewById(R.id.collect_news);
 
         //加载新闻信息数据库表
-        helper = new MyDatabaseHelper(this, "UserDB.db", null, 1);
+        helper = new DBOpenHelper(this);
 
         //进度提示
         mDialog = new ProgressDialog(ShowNewsActivity.this);

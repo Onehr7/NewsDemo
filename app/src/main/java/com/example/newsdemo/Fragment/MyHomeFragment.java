@@ -18,6 +18,7 @@ import android.widget.Toast;
 
 import com.example.newsdemo.Activity.EditInfActivity;
 import com.example.newsdemo.Activity.FeedbackActivity;
+import com.example.newsdemo.Activity.ShowCollectionActivity;
 import com.example.newsdemo.Activity.loginActivity;
 import com.example.newsdemo.R;
 import com.example.newsdemo.Utils.DataCleanManager;
@@ -37,6 +38,7 @@ public class MyHomeFragment extends Fragment {
     private Button buttonExit;
     private Button editPassword;
     private Button buttonfeedback;
+    private Button buttonCollection;
 
 
 
@@ -118,10 +120,21 @@ public class MyHomeFragment extends Fragment {
                 startActivity(intent);
             }
         });
+
+        buttonCollection  = view.findViewById(R.id.my_collection);
+        buttonCollection.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getContext(), ShowCollectionActivity.class);
+                startActivity(intent);
+            }
+        });
+
 //        initView();
         TimeCount.getInstance().setTime(System.currentTimeMillis());
         return view;
     }
+
 
     private void initView(){
 

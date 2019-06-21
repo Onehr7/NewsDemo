@@ -19,11 +19,28 @@ public class DBOpenHelper extends SQLiteOpenHelper {
 
     @Override
     public void onCreate(SQLiteDatabase db){
-        db.execSQL("CREATE TABLE IF NOT EXISTS user(" +
-                "_id INTEGER PRIMARY KEY AUTOINCREMENT," +
-                "name TEXT," +
-                "password TEXT)");
+
+        //  生成用户表
+        db.execSQL(CREATE_USER);
+
+        //  生成收藏表
+        db.execSQL(CREATE_COLLECTION_NEWS);
+
     }
+
+
+    public static final String CREATE_USER = "CREATE TABLE IF NOT EXISTS user("
+            + "_id INTEGER PRIMARY KEY AUTOINCREMENT,"
+            + "name TEXT,"
+            + "password TEXT)";
+
+    public static final String CREATE_COLLECTION_NEWS = "CREATE TABLE IF NOT EXISTS Collection_News(" +
+            "_id INTEGER PRIMARY KEY AUTOINCREMENT,"
+            + "news_title text,"
+            + "news_date text,"
+            + "news_author text,"
+            + "news_picurl text,"
+            + "news_url text)";
 
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion){

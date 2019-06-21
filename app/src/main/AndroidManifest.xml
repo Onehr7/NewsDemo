@@ -33,6 +33,7 @@
         <activity android:name=".Activity.ShowNewsActivity" />
         <activity android:name=".Activity.EditInfActivity" />
         <activity android:name=".Activity.FeedbackActivity"/>
+        <activity android:name=".Activity.ShowCollectionActivity"/>
     </application>
 
 </manifest>

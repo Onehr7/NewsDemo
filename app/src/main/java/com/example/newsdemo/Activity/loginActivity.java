@@ -53,6 +53,7 @@ public class loginActivity extends AppCompatActivity {
             mEtLoginactivityUsername = findViewById(R.id.tv_loginactivity_username);
             mEtLoginactivityPassword = findViewById(R.id.tv_loginactivity_password);
             blogin = findViewById(R.id.bt_loginactivity_login);
+
             blogin.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {

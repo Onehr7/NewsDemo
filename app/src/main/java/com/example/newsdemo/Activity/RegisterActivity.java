@@ -12,7 +12,6 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.Toast;
-
 import com.example.newsdemo.R;
 import com.example.newsdemo.login.Code;
 import com.example.newsdemo.login.DBOpenHelper;
@@ -106,6 +105,7 @@ public class RegisterActivity extends AppCompatActivity {
                             startActivity(intent2);
                             finish();
                             Toast.makeText(this,  "验证通过，注册成功", Toast.LENGTH_SHORT).show();
+                            db.close();
                         }
                         else{
                             Toast.makeText(this,  "两次输入密码不一致，请重新注册", Toast.LENGTH_SHORT).show();
