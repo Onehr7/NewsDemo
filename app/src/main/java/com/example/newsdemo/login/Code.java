@@ -20,8 +20,9 @@ public class Code {
     private static Code bmpCode;
 
     public static Code getInstance() {
-        if(bmpCode == null)
+        if(bmpCode == null) {
             bmpCode = new Code();
+        }
         return bmpCode;
     }
 

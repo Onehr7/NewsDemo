@@ -4,17 +4,12 @@ import android.content.Intent;
 import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.os.Handler;
-import android.support.design.widget.TabLayout;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
-import android.support.v4.view.ViewPager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.Toast;
-
 import com.example.newsdemo.Activity.ShowNewsActivity;
 import com.example.newsdemo.Adapter.NewsAdapter;
 import com.example.newsdemo.Beans.News;
@@ -22,7 +17,6 @@ import com.example.newsdemo.R;
 import com.example.newsdemo.Utils.HttpUtils;
 import com.example.newsdemo.Utils.LoadListView;
 import com.example.newsdemo.Utils.MyBitmapUtils;
-import com.example.newsdemo.Utils.TimeCount;
 
 import org.json.JSONArray;
 import org.json.JSONException;

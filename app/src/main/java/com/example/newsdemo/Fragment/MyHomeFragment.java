@@ -15,14 +15,12 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
-
 import com.example.newsdemo.Activity.EditInfActivity;
 import com.example.newsdemo.Activity.FeedbackActivity;
 import com.example.newsdemo.Activity.ShowCollectionActivity;
 import com.example.newsdemo.Activity.loginActivity;
 import com.example.newsdemo.R;
 import com.example.newsdemo.Utils.DataCleanManager;
-import com.example.newsdemo.Utils.TimeCount;
 
 public class MyHomeFragment extends Fragment {
 
@@ -131,7 +129,6 @@ public class MyHomeFragment extends Fragment {
         });
 
 //        initView();
-        TimeCount.getInstance().setTime(System.currentTimeMillis());
         return view;
     }
 

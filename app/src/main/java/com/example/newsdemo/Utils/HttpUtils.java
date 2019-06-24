@@ -75,6 +75,7 @@ public class HttpUtils {
                     .setPositiveButton("确定",
                             new DialogInterface.OnClickListener() {
 
+                                @Override
                                 public void onClick(DialogInterface di,
                                                     int whichButton) {
                                     //跳转到设置界面

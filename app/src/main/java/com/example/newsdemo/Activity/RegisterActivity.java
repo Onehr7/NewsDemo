@@ -1,6 +1,8 @@
 package com.example.newsdemo.Activity;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
@@ -101,6 +103,10 @@ public class RegisterActivity extends AppCompatActivity {
                         //将用户名和密码加入到数据库中
                         if(password.equals(repassword)){
                             mDBOpenHelper.add(username, password);
+                            SharedPreferences sp = getSharedPreferences("login", Context.MODE_PRIVATE);
+                            sp.edit().putString("username", username).apply();
+                            sp.edit().putString("password", password).apply();
+
                             Intent intent2 = new Intent(this, MainActivity.class);
                             startActivity(intent2);
                             finish();

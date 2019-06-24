@@ -59,8 +59,9 @@ public class ShowNewsActivity extends AppCompatActivity {
             public void onPageFinished(WebView view, String url) {
                 super.onPageFinished(view, url);
                 // 如果没有显示，则显示
-                if (mDialog.isShowing())
+                if (mDialog.isShowing()) {
                     mDialog.dismiss();
+                }
             }
         });
 
