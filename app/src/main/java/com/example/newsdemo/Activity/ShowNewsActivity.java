@@ -2,7 +2,9 @@ package com.example.newsdemo.Activity;
 
 import android.app.ProgressDialog;
 import android.content.ContentValues;
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.database.sqlite.SQLiteDatabase;
 import android.graphics.Bitmap;
 import android.os.Bundle;
@@ -83,6 +85,9 @@ public class ShowNewsActivity extends AppCompatActivity {
 
                 collect_news.setImageResource(R.drawable.favorite_selected);
 
+                SharedPreferences sp = getSharedPreferences("login", Context.MODE_PRIVATE);
+                String username = sp.getString("username", null);
+
                 SQLiteDatabase db = helper.getWritableDatabase();
 
                 //(ContentValues)key、value形式存储信息
@@ -92,6 +97,7 @@ public class ShowNewsActivity extends AppCompatActivity {
                 values.put("news_title", news_title);
                 values.put("news_date", news_date);
                 values.put("news_author", news_author);
+                values.put("news_username",username);
                 values.put("news_picurl", news_picurl);
 
                 db.insert("Collection_News", null, values);

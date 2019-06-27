@@ -1,18 +1,8 @@
 package com.example.newsdemo.Utils;
-
 import java.security.MessageDigest;
 
-/**
- * Created by ts on 18-9-3.
- */
 public class MD5Encoder {
-    /**
-     * Md5Encoder
-     *
-     * @param string
-     * @return
-     * @throws Exception
-     */
+
     public static String encode(String string) throws Exception {
         byte[] hash = MessageDigest.getInstance("MD5").digest(
                 string.getBytes("UTF-8"));

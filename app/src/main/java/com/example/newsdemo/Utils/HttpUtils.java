@@ -25,7 +25,6 @@ import okhttp3.Request;
 import okhttp3.Response;
 
 /**
- * Created by ts on 18-8-29.
  * 关于网络请求的工具类
  * 提供4个静态方法：判断是否有网络连接、若没有弹出网络设置、网络请求（OKHttp）和根据图片的url路径获得Bitmap对象
  */
@@ -78,10 +77,6 @@ public class HttpUtils {
                                 @Override
                                 public void onClick(DialogInterface di,
                                                     int whichButton) {
-                                    //跳转到设置界面
-//                                    activity.startActivityForResult(new Intent(
-//                                                    Settings.ACTION_WIRELESS_SETTINGS),
-//                                            0);
                                 }
                             }).create();
             if (dialog.isShowing()) {

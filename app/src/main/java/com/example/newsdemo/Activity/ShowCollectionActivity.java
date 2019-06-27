@@ -1,6 +1,8 @@
 package com.example.newsdemo.Activity;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.graphics.Bitmap;
@@ -59,6 +61,10 @@ public class ShowCollectionActivity extends AppCompatActivity implements NewsAda
             @Override
             public void run() {
                 SQLiteDatabase db = dbOpenHelper.getReadableDatabase();
+
+                SharedPreferences sp = getSharedPreferences("login", Context.MODE_PRIVATE);
+                String username = sp.getString("username", null);
+
                 Cursor cursor = db.rawQuery("select * from Collection_News",null);
                 if(cursor.getCount() != 0) {
                     if(cursor.moveToFirst()){
@@ -67,11 +73,13 @@ public class ShowCollectionActivity extends AppCompatActivity implements NewsAda
                             String news_title = cursor.getString(cursor.getColumnIndex("news_title"));
                             String news_date = cursor.getString(cursor.getColumnIndex("news_date"));
                             String news_author = cursor.getString(cursor.getColumnIndex("news_author"));
+                            String news_username = cursor.getString(cursor.getColumnIndex("news_username"));
                             String news_picurl = cursor.getString(cursor.getColumnIndex("news_picurl"));
                             Bitmap bitmap = HttpUtils.decodeUriAsBitmapFromNet(news_picurl);
-                            News news = new News(bitmap,news_title,news_url,news_picurl,news_date,news_author);
-                            newsList.add(news);
-
+                            if(news_username.equals(username)){
+                                News news = new News(bitmap,news_title,news_url,news_picurl,news_date,news_author);
+                                newsList.add(news);
+                            }
                         }while (cursor.moveToNext());
                     }
                 }

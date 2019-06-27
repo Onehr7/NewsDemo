@@ -52,7 +52,6 @@ public class Entertainmentfragment extends Fragment implements LoadListView.ILoa
         myBitmapUtils = new MyBitmapUtils(getContext());
         setupViews();
         if (!HttpUtils.isNetworkAvalible(getContext())) {
-            //HttpUtils.checkNetwork(getActivity());
             Toast.makeText(getContext(),"当前没有可以使用的网络，请检查网络设置！",Toast.LENGTH_SHORT).show();
 
         } else {
@@ -99,10 +98,7 @@ public class Entertainmentfragment extends Fragment implements LoadListView.ILoa
                  */
 
                 Bitmap bitmap = myBitmapUtils.getBitmap(imgUrl);
-                /**
-                 * 不采取缓存策略
-                 */
-                //Bitmap bitmap = HttpUtils.decodeUriAsBitmapFromNet(imgUrl);
+
                 String title = json_news.getString("title");
                 String date = json_news.getString("ctime");
                 String author_name = json_news.getString("description");

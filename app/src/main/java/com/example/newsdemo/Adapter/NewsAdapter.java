@@ -13,9 +13,7 @@ import com.example.newsdemo.R;
 
 import java.util.List;
 
-/**
- * Created by ts on 18-8-21.
- */
+
 
 public class NewsAdapter extends ArrayAdapter<News> implements View.OnClickListener {
     private int resourceId;

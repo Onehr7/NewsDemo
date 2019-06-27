@@ -34,7 +34,7 @@ import java.util.Random;
 public class Recommendfragment extends Fragment implements LoadListView.ILoadListener,
         LoadListView.RLoadListener, NewsAdapter.CallBack {
 
-    final String url = "http://api.tianapi.com/keji/?key=7d829a4176fef4ad7409c2dc129905ed&num=30";
+    final String url = "http://is.snssdk.com/api/news/feed/v62/?refer=1&count=20&loc_mode=4&device_id=34960436458&iid=13136511752";
 
     private View view;
     private LoadListView mListView;

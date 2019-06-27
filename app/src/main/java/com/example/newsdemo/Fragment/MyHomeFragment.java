@@ -52,7 +52,8 @@ public class MyHomeFragment extends Fragment {
         //显示用户名
         SharedPreferences sp = getActivity().getSharedPreferences("login", Context.MODE_PRIVATE);
         textViewusername = view.findViewById(R.id.text_username);
-        textViewusername.setText(sp.getString("username", null));
+        String username = sp.getString("username", null);
+        textViewusername.setText(username);
 
         //退出登录功能实现
         buttonLogout = view.findViewById(R.id.button_exitlogin);
@@ -119,6 +120,7 @@ public class MyHomeFragment extends Fragment {
             }
         });
 
+        //收藏功能
         buttonCollection  = view.findViewById(R.id.my_collection);
         buttonCollection.setOnClickListener(new View.OnClickListener() {
             @Override

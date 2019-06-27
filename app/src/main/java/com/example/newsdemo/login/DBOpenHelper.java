@@ -40,6 +40,7 @@ public class DBOpenHelper extends SQLiteOpenHelper {
             + "news_date text,"
             + "news_author text,"
             + "news_picurl text,"
+            + "news_username text,"
             + "news_url text)";
 
     @Override
